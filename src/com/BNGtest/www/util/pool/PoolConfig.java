@@ -3,7 +3,7 @@ package com.BNGtest.www.util.pool;
 /**
  * 数据库连接池配置类
  * @author sunhaohang
- * @date 2020/5/22
+ * @date 2020/8/31
  */
 public class PoolConfig {
 

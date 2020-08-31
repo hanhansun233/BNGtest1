@@ -13,11 +13,11 @@ import java.util.Properties;
 /**
  * JDBC工具类
  * @author sunhaohang
- * @date 2020/5/22
+ * @date 2020/8/31
  */
 public class JDBCUtil {
 
-    /* 静态数据库配置实体对象，程序运行时加载进内存 */
+    // 静态数据库配置实体对象，程序运行时加载进内存
     private static PoolConfig config = new PoolConfig();
 
     static {

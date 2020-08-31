@@ -1,7 +1,15 @@
 package com.BNGtest.www.po;
 
+/**
+ * 创建一个管理员实体类
+ * @author sunhaohang
+ * @date 2020/8/31
+ */
 public class Manager {
 
+    /**
+     * 定义各种变量。
+     */
     private String managerId;
     private String managerPassword;
     private String managerName;
@@ -9,6 +17,9 @@ public class Manager {
     private Integer managerAge;
     private String managerEmail;
 
+    /**
+     *构造方法，分为有参和无参两种
+     */
     public Manager(String managerId, String managerPassword, String managerName, String managerSex, Integer managerAge, String managerEmail) {
         this.managerId = managerId;
         this.managerPassword = managerPassword;
@@ -21,6 +32,9 @@ public class Manager {
     public Manager() {
     }
 
+    /**
+     * 定义各种Getter和Setter方法。
+     */
     public String getManagerId() {
         return managerId;
     }

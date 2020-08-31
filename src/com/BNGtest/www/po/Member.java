@@ -1,7 +1,15 @@
 package com.BNGtest.www.po;
 
+/**
+ * 创建一个成员实体类
+ * @author sunhaohang
+ * @date 2020/8/31
+ */
 public class Member {
 
+    /**
+     * 定义各种变量。
+     */
     private String memberId;
     private String memberPassword;
     private String memberName;
@@ -9,6 +17,9 @@ public class Member {
     private Integer memberAge;
     private String memberEmail;
 
+    /**
+     *构造方法，分为有参和无参两种
+     */
     public Member(String memberId, String memberPassword, String memberName, String memberSex, Integer memberAge, String memberEmail) {
         this.memberId = memberId;
         this.memberPassword = memberPassword;
@@ -21,6 +32,9 @@ public class Member {
     public Member() {
     }
 
+    /**
+     * 定义各种Getter和Setter方法。
+     */
     public String getMemberId() {
         return memberId;
     }

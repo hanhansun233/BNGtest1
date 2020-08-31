@@ -3,7 +3,7 @@ package com.BNGtest.www.util;
 /**
  * 字符串工具类
  * @author sunhaohang
- * @date 2020/5/27
+ * @date 2020/8/31
  */
 public class StringUtil {
     /**
