@@ -12,12 +12,13 @@
             const btn3 = document.getElementById("btn3");
             btn1.onclick = function () {
                 const obj = {
+                    "action": "loginById",
                     "username": document.getElementById("username").value,
                     "password": document.getElementById("password").value
                 };
                 const objStr = JSON.stringify(obj);
                 $.ajax({
-                    url: "http://localhost:8080/SCSS/loginServlet", //要请求的服务器url
+                    url: "http://localhost:8080/BNGtest/ManagerServlet", //要请求的服务器url
                     data: obj,
                     async: true,
                     cache: false,
@@ -26,7 +27,7 @@
                     success: function (data) {
                         console.log('成功, 收到的数据: ' + data.result);
                         if (data.result){
-                            window.location.href="http://localhost:8080/SCSS/Pages/StudentMain.html";
+                            window.location.href="http://localhost:8080/BNGtest/webapp/pages/ManagerMain.html";
                         }else {
                             alert("登录失败！请仔细检查！");
                         }
@@ -35,12 +36,13 @@
             };
             btn2.onclick = function () {
                 const obj = {
+                    "action": "loginByEmail",
                     "username": document.getElementById("username").value,
                     "password": document.getElementById("password").value
                 };
                 const objStr = JSON.stringify(obj);
                 $.ajax({
-                    url: "http://localhost:8080/SCSS/loginServlet2", //要请求的服务器url
+                    url: "http://localhost:8080/BNGtest/ManagerServlet", //要请求的服务器url
                     data: obj,
                     async: true,
                     cache: false,
@@ -49,7 +51,7 @@
                     success: function (data) {
                         console.log('成功, 收到的数据: ' + data.result);
                         if (data.result){
-                            window.location.href="http://localhost:8080/SCSS/Pages/TeacherMain.html";
+                            window.location.href="http://localhost:8080/BNGtest/webapp/pages/ManagerMain.html";
                         }else {
                             alert("登录失败！请仔细检查！");
                         }
@@ -107,10 +109,10 @@
         <td>密码&nbsp;<input type="password" name="password" id="password"></td>
     </tr>
     <tr>
-        <td align="center"><input type="button" value="成员账号登录入口" id="btn1">
-            <input type="button" value="成员邮箱登录入口" id="btn2">
-            <input type="button" value="管理员账号登录入口" id="btn3">
-            <input type="button" value="管理员邮箱登录入口" id="btn4">
+        <td align="center"><input type="button" value="管理员账号登录入口" id="btn1">
+            <input type="button" value="管理员邮箱登录入口" id="btn2">
+            <input type="button" value="成员账号登录入口" id="btn3">
+            <input type="button" value="成员邮箱登录入口" id="btn4">
             <input type="reset" value="清空"></td>
     </tr>
 </table>
