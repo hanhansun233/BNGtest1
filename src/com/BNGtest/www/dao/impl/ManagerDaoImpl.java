@@ -16,7 +16,7 @@ public class ManagerDaoImpl extends BaseDao implements ManagerDao {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        String sql = "select * from t_manager where id=? and password= ?";
+        String sql = "select * from t_manager where id=? and password=?";
         try {
             rs = query(conn,ps,rs,sql,id,passWord);
             manager = getManager(rs);
@@ -51,7 +51,7 @@ public class ManagerDaoImpl extends BaseDao implements ManagerDao {
     private Manager getManager(ResultSet rs) throws Exception{
         Manager manager = null;
         while (rs.next()){
-            manager = new Manager(rs.getString("id"),rs.getString("password"),rs.getString("name"),rs.getString("sex"),rs.getInt("age0"),rs.getString("email"));
+            manager = new Manager(rs.getString("id"),rs.getString("password"),rs.getString("name"),rs.getString("sex"),rs.getInt("age"),rs.getString("email"));
         }
         return manager;
     }
