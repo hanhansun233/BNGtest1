@@ -11,7 +11,17 @@
 
     <servlet-mapping>
         <servlet-name>ManagerServlet</servlet-name>
-        <url-pattern>/ManagerServlet</url-pattern>
+        <url-pattern>/managerServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MemberServlet</servlet-name>
+        <servlet-class>com.BNGtest.www.controller.MemberServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MemberServlet</servlet-name>
+        <url-pattern>/memberServlet</url-pattern>
     </servlet-mapping>
 
 </web-app>

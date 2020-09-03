@@ -65,7 +65,7 @@
                 };
                 const objStr = JSON.stringify(obj);
                 $.ajax({
-                    url: "http://localhost:8080/SCSS/loginServlet3", //要请求的服务器url
+                    url: "http://localhost:8080/BNGtest/MemberServlet", //要请求的服务器url
                     data: obj,
                     async: true,
                     cache: false,
@@ -74,7 +74,7 @@
                     success: function (data) {
                         console.log('成功, 收到的数据: ' + data.result);
                         if (data.result){
-                            window.location.href="http://localhost:8080/SCSS/Pages/ManagerMain.html";
+                            window.location.href="http://localhost:8080/SCSS/Pages/MemberMain.html";
                         }else {
                             alert("登录失败！请仔细检查！");
                         }
