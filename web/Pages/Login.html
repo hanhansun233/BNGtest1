@@ -10,6 +10,8 @@
             const btn1 = document.getElementById("btn1");
             const btn2 = document.getElementById("btn2");
             const btn3 = document.getElementById("btn3");
+            const btn4 = document.getElementById("btn4");
+            const btn5 = document.getElementById("btn5");
             btn1.onclick = function () {
                 const obj = {
                     "action": "loginById",
@@ -60,6 +62,7 @@
             };
             btn3.onclick = function () {
                 const obj = {
+                    "action": "loginById",
                     "username": document.getElementById("username").value,
                     "password": document.getElementById("password").value
                 };
@@ -74,11 +77,74 @@
                     success: function (data) {
                         console.log('成功, 收到的数据: ' + data.result);
                         if (data.result){
-                            window.location.href="http://localhost:8080/SCSS/Pages/MemberMain.html";
+                            window.location.href="http://localhost:8080/BNGtest/Pages/MemberMain.html";
                         }else {
                             alert("登录失败！请仔细检查！");
                         }
                     }
+                })
+            };
+            btn4.onclick = function () {
+                const obj = {
+                    "action": "loginByEmail",
+                    "username": document.getElementById("username").value,
+                    "password": document.getElementById("password").value
+                };
+                const objStr = JSON.stringify(obj);
+                $.ajax({
+                    url: "http://localhost:8080/BNGtest/MemberServlet", //要请求的服务器url
+                    data: obj,
+                    async: true,
+                    cache: false,
+                    type: "POST",
+                    dataType: "json",
+                    success: function (data) {
+                        console.log('成功, 收到的数据: ' + data.result);
+                        if (data.result){
+                            window.location.href="http://localhost:8080/BNGtest/Pages/MemberMain.html";
+                        }else {
+                            alert("登录失败！请仔细检查！");
+                        }
+                    }
+                })
+            };
+            btn4.onclick = function () {
+                const obj = {
+                    "action": "loginByEmail",
+                    "username": document.getElementById("username").value,
+                    "password": document.getElementById("password").value
+                };
+                const objStr = JSON.stringify(obj);
+                $.ajax({
+                    url: "http://localhost:8080/BNGtest/MemberServlet", //要请求的服务器url
+                    data: obj,
+                    async: true,
+                    cache: false,
+                    type: "POST",
+                    dataType: "json",
+                    success: function (data) {
+                        console.log('成功, 收到的数据: ' + data.result);
+                        if (data.result){
+                            window.location.href="http://localhost:8080/BNGtest/Pages/MemberMain.html";
+                        }else {
+                            alert("登录失败！请仔细检查！");
+                        }
+                    }
+                })
+            };
+            btn5.onclick = function () {
+                const obj = {
+                    "action": "wantCode",
+                    "username": document.getElementById("username").value
+                };
+                const objStr = JSON.stringify(obj);
+                $.ajax({
+                    url: "http://localhost:8080/BNGtest/CodeServlet", //要请求的服务器url
+                    data: obj,
+                    async: true,
+                    cache: false,
+                    type: "POST",
+                    dataType: "json",
                 })
             }
         }
@@ -103,10 +169,10 @@
 -->
 <table align="center">
     <tr>
-        <td>账号&nbsp;<input type="text" name="username" id="username"></td>
+        <td>账号/邮箱&nbsp;<input type="text" name="username" id="username"><input type="button" value="获取验证码" id="btn5"></td>
     </tr>
     <tr>
-        <td>密码&nbsp;<input type="password" name="password" id="password"></td>
+        <td>密码/验证码&nbsp;<input type="password" name="password" id="password"></td>
     </tr>
     <tr>
         <td align="center"><input type="button" value="管理员账号登录入口" id="btn1">

@@ -14,4 +14,24 @@
         <url-pattern>/ManagerServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>MemberServlet</servlet-name>
+        <servlet-class>com.BNGtest.www.controller.MemberServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MemberServlet</servlet-name>
+        <url-pattern>/MemberServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CodeServlet</servlet-name>
+        <servlet-class>com.BNGtest.www.controller.CodeServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CodeServlet</servlet-name>
+        <url-pattern>/CodeServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>
