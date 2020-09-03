@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录界面</title>
+
+    <script type="text/javascript" src="../js/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            const btn1 = document.getElementById("btn1");
+            const btn2 = document.getElementById("btn2");
+            const btn3 = document.getElementById("btn3");
+            btn1.onclick = function () {
+                const obj = {
+                    "action": "loginById",
+                    "username": document.getElementById("username").value,
+                    "password": document.getElementById("password").value
+                };
+                const objStr = JSON.stringify(obj);
+                $.ajax({
+                    url: "http://localhost:8080/BNGtest/ManagerServlet", //要请求的服务器url
+                    data: obj,
+                    async: true,
+                    cache: false,
+                    type: "POST",
+                    dataType: "json",
+                    success: function (data) {
+                        console.log('成功, 收到的数据: ' + data.result);
+                        if (data.result){
+                            window.location.href="http://localhost:8080/BNGtest/Pages/ManagerMain.html";
+                        }else {
+                            alert("登录失败！请仔细检查！");
+                        }
+                    }
+                })
+            };
+            btn2.onclick = function () {
+                const obj = {
+                    "action": "loginByEmail",
+                    "username": document.getElementById("username").value,
+                    "password": document.getElementById("password").value
+                };
+                const objStr = JSON.stringify(obj);
+                $.ajax({
+                    url: "http://localhost:8080/BNGtest/ManagerServlet", //要请求的服务器url
+                    data: obj,
+                    async: true,
+                    cache: false,
+                    type: "POST",
+                    dataType: "json",
+                    success: function (data) {
+                        console.log('成功, 收到的数据: ' + data.result);
+                        if (data.result){
+                            window.location.href="http://localhost:8080/BNGtest/Pages/ManagerMain.html";
+                        }else {
+                            alert("登录失败！请仔细检查！");
+                        }
+                    }
+                })
+            };
+            btn3.onclick = function () {
+                const obj = {
+                    "username": document.getElementById("username").value,
+                    "password": document.getElementById("password").value
+                };
+                const objStr = JSON.stringify(obj);
+                $.ajax({
+                    url: "http://localhost:8080/SCSS/loginServlet3", //要请求的服务器url
+                    data: obj,
+                    async: true,
+                    cache: false,
+                    type: "POST",
+                    dataType: "json",
+                    success: function (data) {
+                        console.log('成功, 收到的数据: ' + data.result);
+                        if (data.result){
+                            window.location.href="http://localhost:8080/SCSS/Pages/ManagerMain.html";
+                        }else {
+                            alert("登录失败！请仔细检查！");
+                        }
+                    }
+                })
+            }
+        }
+    </script>
+
+</head>
+<body>
+<!--
+    1. form标签画表单
+    2. action  提交给服务器
+-->
+<!--
+    1. input 输入 type 按钮样式 value 按钮上的文字 name 提交的字段
+    2. submit 有提交能力
+    3. button 没有提交能力
+    4. radio 单选按钮
+    5. text 文本输入框
+    6. reset 重置
+    7. password 密码
+    8. 表单提交格式 action ? name1=value1 & name2=value2...
+    9. value没有写的时候,提交空字符串
+-->
+<table align="center">
+    <tr>
+        <td>账号&nbsp;<input type="text" name="username" id="username"></td>
+    </tr>
+    <tr>
+        <td>密码&nbsp;<input type="password" name="password" id="password"></td>
+    </tr>
+    <tr>
+        <td align="center"><input type="button" value="管理员账号登录入口" id="btn1">
+            <input type="button" value="管理员邮箱登录入口" id="btn2">
+            <input type="button" value="成员账号登录入口" id="btn3">
+            <input type="button" value="成员邮箱登录入口" id="btn4">
+            <input type="reset" value="清空"></td>
+    </tr>
+</table>
+</body>
+</html>
