@@ -7,6 +7,12 @@
         <element id="directory" name="classes">
           <element id="module-output" name="BNGtest" />
         </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="F:/BaiduNetdiskDownload/Email包/javax.mail.jar" />
+          <element id="file-copy" path="D:/gson-2.2.4.jar" />
+          <element id="file-copy" path="F:/BaiduNetdiskDownload/Email包/commons-email-1.5.jar" />
+          <element id="file-copy" path="F:/BaiduNetdiskDownload/Email包/activation.jar" />
+        </element>
       </element>
     </root>
   </artifact>

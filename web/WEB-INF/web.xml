@@ -11,7 +11,7 @@
 
     <servlet-mapping>
         <servlet-name>ManagerServlet</servlet-name>
-        <url-pattern>/managerServlet</url-pattern>
+        <url-pattern>/ManagerServlet</url-pattern>
     </servlet-mapping>
 
 </web-app>
