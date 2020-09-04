@@ -48,6 +48,25 @@ public class ManagerDaoImpl extends BaseDao implements ManagerDao {
         return manager;
     }
 
+    @Override
+    public Manager queryManagerByEmail(String email) {
+        Manager manager = new Manager();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql = "select * from t_manager where email=?";
+        try {
+            rs = query(conn,ps,rs,sql,email);
+            manager = getManager(rs);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            JDBCUtil.closeOnlyPAndR(ps,rs);
+            JDBCUtil.closeConnection(conn);
+        }
+        return manager;
+    }
+
     private Manager getManager(ResultSet rs) throws Exception{
         Manager manager = null;
         while (rs.next()){

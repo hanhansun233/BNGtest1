@@ -17,4 +17,11 @@ public interface ManagerService {
      * @return 如果返回null，说明没这个管理员，反之亦然。
      */
     public Manager queryManagerById(String managerId);
+
+    /**
+     * 根据管理员号查询管理员信息的业务
+     * @param email 管理员工号
+     * @return 如果返回null，说明没这个管理员，反之亦然。
+     */
+    public Manager queryManagerByEmail(String email);
 }

@@ -16,11 +16,12 @@ public class CodeServlet extends HttpServlet {
     protected void wantCode(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String userName = (String) req.getParameter("username");
         try {
-            int verCode = ((int) (Math.random() * 999));
+            Integer verCode = ((int)(Math.random() * 999));
             HttpSession session = req.getSession();
             session.setAttribute("verCode", verCode);
             MailUtil.send_mail(userName, verCode);
             System.out.println("邮件发送成功!");
+            //System.out.println(session.getAttribute("verCode"));
         } catch (MessagingException e) {
             e.printStackTrace();
         }

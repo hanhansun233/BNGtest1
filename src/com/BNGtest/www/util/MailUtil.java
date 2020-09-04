@@ -1,8 +1,12 @@
 package com.BNGtest.www.util;
 
+import com.BNGtest.www.po.Member;
+
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 /**
@@ -14,7 +18,15 @@ public class MailUtil {
      * @param to 给谁发
      * @param text 发送内容
      */
-    public static void send_mail(String to,Integer text) throws MessagingException {
+
+    public static void send_mail(String to, Integer text) throws MessagingException, IOException {
+        InputStream is = JDBCUtil.class.getClassLoader().getResourceAsStream("email.properties");
+        Properties p = new Properties();
+        try {
+            p.load(is);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         //创建连接对象 连接到邮件服务器
         Properties properties = new Properties();
         //设置发送邮件的基本参数
@@ -28,7 +40,7 @@ public class MailUtil {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
                 //两个参数分别是发送邮件的账户和密码
-                return new PasswordAuthentication("390712477@qq.com","tywjvorqwbzgbhji");
+                return new PasswordAuthentication(p.getProperty("user"),p.getProperty("password"));
             }
         });
 
